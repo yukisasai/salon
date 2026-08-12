@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>部位を選ぶだけ、料金がその場でわかる｜脱毛サロン ぬか</title>
+<meta name="description" content="全身プランを買わせません。必要な部位だけ選んで、その場で総額がわかる美容脱毛サロン。1回ごとのお支払い・勧誘なし・熊谷駅徒歩4分。">
+<meta name="robots" content="noindex,nofollow">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#3A2130">
+<meta property="og:type" content="website">
+<meta property="og:title" content="部位を選ぶだけ、料金がその場でわかる｜脱毛サロン ぬか">
+<meta property="og:image" content="./images/og.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Zen+Kaku+Gothic+Antique:wght@400;500;700&family=Cormorant:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   脱毛サロン ぬか / NUKA
+   ──────────────────────────────────────────────────────────────
+   既存6本で未使用の色域＝深い葡萄色(plum)を主役に据える。
+   夜のトーン。01(白磁の明朝)と同じ明朝系だが、地の明度が
+   真逆なので並べても兄弟に見えない。
+     骨格 : Noto Serif JP(見出し) + Zen Kaku Gothic Antique(本文)。
+            数値のみ Cormorant で細く抜き、料金を軽く見せる。
+     色   : 葡萄(#3A2130) × シャンパン金(#C9A46A) × 淡紅(#E8D6DE)。
+            金は罫線と数値のみ。面には絶対に使わない(安っぽくなる)。
+     signature : 部位選択チャート。脱毛サロン最大の不信は
+                 「結局いくらか分からないまま契約させられる」こと。
+                 部位をタップすると総額が即座に出る仕組みにして、
+                 カウンセリング前に金額を確定させる。
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --plum:#3A2130; --plum-2:#4A2A3A; --wine:#7A3E56;
+  --blush:#E8D6DE; --gold:#C9A46A; --gold-d:#A8834A;
+  --paper:#F7F2F4; --paper-2:#EDE3E7;
+  --ink:#2B1823; --ink-2:#7C6470;
+  --line:rgba(43,24,35,.14); --line-w:rgba(247,242,244,.16);
+
+  --f-mincho:'Noto Serif JP','Hiragino Mincho ProN',serif;
+  --f-ja:'Zen Kaku Gothic Antique',system-ui,sans-serif;
+  --f-num:'Cormorant',Georgia,serif;
+
+  --fs-hero:clamp(1.8rem,7vw,3.2rem);
+  --fs-h2:clamp(1.35rem,5.2vw,2.05rem);
+  --fs-h3:clamp(1.05rem,4vw,1.28rem);
+  --fs-lead:clamp(.9375rem,3.6vw,1.0625rem);
+  --fs-sm:.8125rem; --fs-xs:.6875rem;
+
+  --gut:1.375rem; --sect:clamp(3.75rem,12vw,6.5rem);
+  --well:640px; --wide:1080px; --bar:76px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-ja);
+  font-size:.9375rem;line-height:1.95;letter-spacing:.02em;padding-bottom:var(--bar);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+.sect{padding:var(--sect) var(--gut)}
+.sect--alt{background:var(--paper-2)}
+.sect--plum{background:var(--plum);color:var(--paper)}
+.well{max-width:var(--well);margin-inline:auto}
+.wide{max-width:var(--wide);margin-inline:auto}
+
+.eyebrow{font-family:var(--f-num);font-size:.8125rem;font-weight:400;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--gold-d);margin:0 0 .7rem;display:flex;align-items:center;gap:.65rem}
+.eyebrow::after{content:'';flex:1;height:1px;background:var(--gold);opacity:.4}
+.sect--plum .eyebrow{color:var(--gold)}
+.h2{font-family:var(--f-mincho);font-size:var(--fs-h2);font-weight:600;line-height:1.6;
+  letter-spacing:.05em;margin:0 0 .9rem}
+.h2 em{font-style:normal;color:var(--wine)}
+.sect--plum .h2{color:var(--paper)}
+.sect--plum .h2 em{color:var(--gold)}
+.lead{font-size:var(--fs-lead);color:var(--ink-2);margin:0 0 2.25rem}
+.sect--plum .lead{color:rgba(247,242,244,.7)}
+.fine{font-size:var(--fs-sm);line-height:1.85;color:var(--ink-2);opacity:.85;margin:1.5rem 0 0}
+.sect--plum .fine{color:rgba(247,242,244,.58)}
+
+.btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;
+  width:100%;min-height:66px;padding:.9rem 1.5rem;border:0;border-radius:2px;
+  background:var(--wine);color:var(--paper);font-family:var(--f-ja);font-size:1.0625rem;font-weight:700;
+  letter-spacing:.08em;text-decoration:none;cursor:pointer;
+  box-shadow:0 2px 0 #5C2C3F,0 10px 26px rgba(122,62,86,.3);
+  transition:transform .16s ease,background .16s ease}
+.btn:hover{background:#8C4A63;transform:translateY(-1px)}
+.btn:active{transform:translateY(2px);box-shadow:0 0 0 #5C2C3F}
+.btn small{font-family:var(--f-num);font-size:.75rem;letter-spacing:.16em;color:var(--gold)}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+
+/* ── ヘッダー ── */
+.hd{display:flex;align-items:center;justify-content:space-between;padding:.95rem var(--gut);border-bottom:1px solid var(--line)}
+.hd__l{display:flex;align-items:baseline;gap:.55rem}
+.hd__ja{font-family:var(--f-mincho);font-size:1.1rem;font-weight:600;letter-spacing:.2em}
+.hd__en{font-family:var(--f-num);font-size:.625rem;letter-spacing:.26em;color:var(--ink-2)}
+.hd__r{font-size:var(--fs-xs);font-weight:700;border:1px solid var(--gold);color:var(--gold-d);padding:.3rem .7rem}
+
+/* ── ヒーロー ── */
+.hero{position:relative;background:var(--plum);color:var(--paper);overflow:hidden}
+.hero__bg{position:absolute;inset:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover}
+.hero__bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(58,33,48,.3),rgba(58,33,48,.85) 78%)}
+.hero__in{position:relative;padding:3rem var(--gut) var(--sect)}
+.hero__kick{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-family:var(--f-num);
+  font-size:.75rem;letter-spacing:.2em;padding:.3rem .8rem;margin-bottom:1.1rem}
+.hero__ttl{font-family:var(--f-mincho);font-size:var(--fs-hero);font-weight:600;line-height:1.52;
+  letter-spacing:.05em;margin:0 0 1rem;color:var(--paper)}
+.hero__ttl em{font-style:normal;color:var(--gold)}
+.hero__sub{font-size:var(--fs-lead);color:rgba(247,242,244,.72);margin:0 0 1.75rem;max-width:32em}
+.hero__pts{display:grid;gap:.55rem;padding:0;margin:0 0 1.75rem;list-style:none}
+.hero__pts li{display:grid;grid-template-columns:18px 1fr;gap:.7rem;font-size:var(--fs-sm);color:rgba(247,242,244,.88)}
+.hero__pts li::before{content:'';margin-top:.55em;width:11px;height:7px;
+  border-left:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(-45deg)}
+.hero__cta{max-width:400px}
+.hero__note{margin:.85rem 0 0;font-size:var(--fs-sm);color:rgba(247,242,244,.6)}
+@media(min-width:900px){.hero__in{max-width:var(--wide);margin-inline:auto;padding-block:4rem var(--sect)}.hero__ttl{max-width:15ch}}
+
+/* ══ シグネチャー : 部位選択チャート ══ */
+.pick{display:grid;gap:1.5rem}
+.pick__chart{background:var(--paper);border:1px solid var(--line);padding:1.25rem;display:grid;place-items:center}
+.pick__chart svg{width:100%;max-width:250px;height:auto}
+.zone{fill:var(--blush);stroke:var(--plum);stroke-width:1.3;stroke-linejoin:round;stroke-linecap:round;
+  cursor:pointer;transition:fill .18s ease}
+.zone:hover{fill:#DCC3CE}
+.zone[aria-pressed="true"]{fill:var(--wine)}
+.pick__side{display:grid;gap:1rem;align-content:start}
+.pick__list{display:flex;flex-wrap:wrap;gap:.45rem;padding:0;margin:0;list-style:none}
+.zbtn{border:1px solid var(--line);background:var(--paper);color:var(--ink);font-family:inherit;
+  font-size:var(--fs-sm);padding:.5rem .8rem;cursor:pointer;border-radius:2px;
+  transition:background .16s ease,border-color .16s ease,color .16s ease}
+.zbtn[aria-pressed="true"]{background:var(--wine);border-color:var(--wine);color:var(--paper);font-weight:700}
+.zbtn i{font-style:normal;font-family:var(--f-num);font-size:.8125rem;margin-left:.4rem;opacity:.7}
+.pick__out{background:var(--plum);color:var(--paper);padding:1.35rem 1.2rem;text-align:center}
+.pick__lb{font-family:var(--f-num);font-size:.75rem;letter-spacing:.2em;color:var(--gold);margin:0 0 .5rem}
+.pick__sum{font-family:var(--f-num);font-size:clamp(2.2rem,9vw,3rem);font-weight:400;line-height:1;margin:0}
+.pick__sum i{font-style:normal;font-family:var(--f-ja);font-size:.875rem;font-weight:500;margin-left:.2em;color:rgba(247,242,244,.7)}
+.pick__cnt{margin:.6rem 0 0;font-size:var(--fs-sm);color:rgba(247,242,244,.72)}
+.pick__cnt b{color:var(--gold)}
+.pick__reset{background:none;border:0;color:rgba(247,242,244,.6);font-family:var(--f-ja);
+  font-size:var(--fs-xs);text-decoration:underline;text-underline-offset:3px;cursor:pointer;margin-top:.6rem}
+@media(min-width:820px){.pick{grid-template-columns:auto 1fr;gap:2rem;align-items:start}}
+
+/* ── 比較 ── */
+.vs{display:grid;gap:1px;background:var(--line-w);border:1px solid var(--line-w);margin:0 0 1.5rem}
+.vs__row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-w)}
+.vs__c{background:var(--plum);padding:1.05rem 1.1rem}
+.vs__c--on{background:var(--plum-2)}
+.vs__h{font-family:var(--f-num);font-size:.6875rem;letter-spacing:.18em;color:rgba(247,242,244,.55);margin:0 0 .3rem}
+.vs__c--on .vs__h{color:var(--gold)}
+.vs__c p:last-child{margin:0;font-size:var(--fs-sm);line-height:1.8}
+.vs__c--on p:last-child{font-weight:700}
+
+/* ── スタッフ ── */
+.staff{display:grid;gap:1.5rem;padding:0;margin:0;list-style:none}
+.staff__pic{aspect-ratio:7/9;overflow:hidden;margin-bottom:.9rem;background:var(--paper-2);max-width:220px}
+.staff__pic img{width:100%;height:100%;object-fit:cover}
+.staff__n{font-family:var(--f-mincho);font-size:var(--fs-h3);font-weight:600;margin:0 0 .15rem;letter-spacing:.06em}
+.staff__n span{display:block;font-family:var(--f-num);font-size:.6875rem;letter-spacing:.18em;color:var(--gold-d);margin-top:.25rem}
+.staff__r{font-size:var(--fs-sm);color:var(--ink-2);margin:0 0 .5rem}
+.staff__b{margin:0;font-size:var(--fs-sm);color:var(--ink-2);line-height:1.85}
+@media(min-width:760px){.staff{grid-template-columns:1fr 1fr;gap:2rem}.staff__pic{max-width:none}}
+
+/* ── 声 ── */
+.voices{display:grid;gap:1rem;padding:0;margin:0;list-style:none}
+.voice{background:var(--paper);border:1px solid var(--line);padding:1.35rem 1.2rem}
+.voice__top{display:flex;align-items:center;gap:.7rem;margin-bottom:.75rem}
+.voice__av{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none}
+.voice__nm{font-weight:700;font-size:.875rem;margin:0}
+.voice__ag{font-size:var(--fs-xs);color:var(--ink-2);margin:0}
+.voice__h{font-family:var(--f-mincho);font-weight:600;color:var(--wine);margin:0 0 .35rem;font-size:.9375rem}
+.voice__b{margin:0;font-size:var(--fs-sm);color:var(--ink-2);line-height:1.85}
+@media(min-width:820px){.voices{grid-template-columns:repeat(3,1fr)}}
+
+/* ── FAQ ── */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{display:grid;grid-template-columns:1.5rem 1fr 15px;align-items:start;gap:.75rem;padding:1.15rem 0;
+  font-weight:700;font-size:.9375rem;line-height:1.7;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:'Q';font-family:var(--f-num);font-size:1.2rem;color:var(--wine);line-height:1.4}
+.faq summary::after{content:'';margin-top:.6em;width:10px;height:10px;border-right:1.5px solid var(--ink-2);
+  border-bottom:1.5px solid var(--ink-2);transform:rotate(45deg);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq__a{padding:0 0 1.25rem 2.25rem;font-size:var(--fs-sm);line-height:1.9;color:var(--ink-2)}
+
+/* ── フォーム ── */
+.form{display:grid;gap:1.1rem}
+.fld label{display:block;font-size:var(--fs-sm);font-weight:700;margin-bottom:.4rem}
+.req,.opt{display:inline-block;margin-left:.45rem;padding:.06rem .45rem;font-size:.625rem;font-weight:700;vertical-align:.1em}
+.req{background:var(--wine);color:var(--paper)}
+.opt{background:rgba(43,24,35,.1);color:var(--ink-2)}
+.fld input,.fld select,.fld textarea{width:100%;padding:.9rem 1rem;border:1px solid var(--line);border-radius:2px;
+  background:#fff;color:var(--ink);font-family:inherit;font-size:1rem;line-height:1.6}
+.fld textarea{min-height:110px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--wine);outline:none}
+.fld .err{display:none;margin:.35rem 0 0;font-size:var(--fs-sm);color:#B3261E}
+.fld[data-bad="true"] input,.fld[data-bad="true"] select{border-color:#B3261E}
+.fld[data-bad="true"] .err{display:block}
+.privacy{font-size:var(--fs-sm);line-height:1.8;color:var(--ink-2);margin:0}
+.status{display:none;padding:.9rem 1rem;font-size:var(--fs-sm);line-height:1.8;background:#FAEAE8;color:#8C2B20}
+.status[data-on]{display:block}
+.done{display:none;text-align:center;padding:2.75rem 1.25rem;background:#fff;border:1px solid var(--line)}
+.done[data-on="true"]{display:block}
+.done__m{width:54px;height:54px;margin:0 auto;border-radius:50%;background:var(--wine);display:grid;place-items:center;color:var(--paper)}
+.done h3{font-family:var(--f-mincho);font-weight:600;font-size:var(--fs-h3);margin:1.1rem 0 .5rem}
+.done p{margin:0;font-size:var(--fs-sm);color:var(--ink-2)}
+
+/* ── フッター ── */
+.ft{background:var(--plum);color:rgba(247,242,244,.8);padding:var(--sect) var(--gut) 2.5rem}
+.ft__l{text-align:center;margin-bottom:1.75rem}
+.ft__ja{font-family:var(--f-mincho);font-size:1.25rem;font-weight:600;letter-spacing:.22em;color:var(--paper)}
+.ft__en{font-family:var(--f-num);font-size:.625rem;letter-spacing:.28em;color:var(--gold);margin-top:.35rem}
+.ft__pic{aspect-ratio:4/3;overflow:hidden;margin-bottom:1.75rem}
+.ft__pic img{width:100%;height:100%;object-fit:cover}
+.ft dl{display:grid;grid-template-columns:5.5em 1fr;gap:.5rem 1rem;margin:0 0 2rem;font-size:var(--fs-sm);line-height:1.8}
+.ft dt{color:rgba(247,242,244,.5)}
+.ft dd{margin:0}
+.ft__cp{font-family:var(--f-num);font-size:.6875rem;letter-spacing:.14em;text-align:center;opacity:.55;margin:0}
+
+/* ── 固定バー ── */
+.bar{position:fixed;inset:auto 0 0 0;z-index:40;display:flex;align-items:center;gap:.7rem;
+  padding:.55rem var(--gut);padding-bottom:calc(.55rem + env(safe-area-inset-bottom,0px));
+  background:rgba(247,242,244,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  transform:translateY(115%);transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.bar[data-on="true"]{transform:none}
+.bar__p{flex:none;line-height:1.2}
+.bar__p b{display:block;font-family:var(--f-num);font-size:1.5rem;color:var(--wine)}
+.bar__p span{font-size:.5625rem;letter-spacing:.06em;color:var(--ink-2)}
+.bar .btn{min-height:54px;font-size:.9375rem}
+@media(min-width:620px){.bar{justify-content:center}.bar .btn{max-width:340px}}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.rv[data-in="true"]{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd__l"><span class="hd__ja">ぬか</span><span class="hd__en">NUKA</span></div>
+  <span class="hd__r">全身プランなし</span>
+</header>
+
+<!-- ════ ヒーロー ════ -->
+<section class="hero">
+  <div class="hero__bg"><img src="./images/hero.svg" alt="" width="1400" height="1750" fetchpriority="high"></div>
+  <div class="hero__in">
+    <span class="hero__kick">NO BUNDLE, NO CONTRACT</span>
+    <h1 class="hero__ttl">要らない部位まで、<br><em>買わなくていい</em>。</h1>
+    <p class="hero__sub">当店に全身プランはありません。気になる部位だけを選んで、1回ずつお支払いください。総額は下のチャートで、いま確認できます。</p>
+    <ul class="hero__pts">
+      <li>部位ごとの都度払い。回数の契約はありません</li>
+      <li>カウンセリング当日の契約はお受けしていません</li>
+      <li>予約はWebで完結。電話での勧誘はしません</li>
+    </ul>
+    <div class="hero__cta"><a class="btn" href="#counsel" data-cta="hero">無料カウンセリングを予約<small>NO SAME-DAY CONTRACT</small></a></div>
+    <p class="hero__note">熊谷駅 南口 徒歩4分／10:00–20:00（火曜定休）</p>
+  </div>
+</section>
+
+<!-- ════ シグネチャー : 部位選択チャート ════ -->
+<section class="sect" id="chart">
+  <div class="wide rv">
+    <p class="eyebrow">Estimate</p>
+    <h2 class="h2">部位を選ぶと、<br><em>その場で総額</em>が出ます。</h2>
+    <p class="lead">図をタップしても、下のボタンから選んでも構いません。表示は1回あたりの税込金額です。</p>
+
+    <div class="pick">
+      <div class="pick__chart">
+        <svg viewBox="0 0 260 430" role="group" aria-label="部位選択チャート">
+          <g>
+            <ellipse class="zone" data-z="face"     cx="130" cy="36" rx="20" ry="25" role="button" tabindex="0" aria-pressed="false" aria-label="顔"><title>顔 4,400円</title></ellipse>
+            <path    class="zone" data-z="neck"     d="M122 58 h16 v13 h-16 z" role="button" tabindex="0" aria-pressed="false" aria-label="うなじ"><title>うなじ 3,300円</title></path>
+            <path    class="zone" data-z="body"     d="M130 70 L103 80 q-8 3 -9 11 l-3 30 q-2 14 2 27 l4 14 q-3 16 0 30 l2 16 h62 l2-16 q3-14 0-30 l4-14 q4-13 2-27 l-3-30 q-1-8-9-11 z" role="button" tabindex="0" aria-pressed="false" aria-label="胸・お腹"><title>胸・お腹 6,600円</title></path>
+            <path    class="zone" data-z="armUpper" d="M94 92 q-8 5 -10 14 l-8 44 q-1 7 6 8 q7 1 8-6 l11-43 z" role="button" tabindex="0" aria-pressed="false" aria-label="二の腕"><title>二の腕 4,400円</title></path>
+            <path    class="zone" data-z="armUpper" d="M166 92 q8 5 10 14 l8 44 q1 7 -6 8 q-7 1 -8-6 l-11-43 z" aria-hidden="true"></path>
+            <path    class="zone" data-z="armLower" d="M76 156 q-2 7 -1 14 l7 42 q1 7 8 6 q7-1 6-8 l-6-44 z" role="button" tabindex="0" aria-pressed="false" aria-label="ひじ下"><title>ひじ下 4,400円</title></path>
+            <path    class="zone" data-z="armLower" d="M184 156 q2 7 1 14 l-7 42 q-1 7 -8 6 q-7-1 -6-8 l6-44 z" aria-hidden="true"></path>
+            <path    class="zone" data-z="legUpper" d="M101 216 q-2 12 0 22 l7 58 q1 8 9 8 q8 0 8-8 l3-80 z" role="button" tabindex="0" aria-pressed="false" aria-label="太もも"><title>太もも 7,700円</title></path>
+            <path    class="zone" data-z="legUpper" d="M159 216 q2 12 0 22 l-7 58 q-1 8 -9 8 q-8 0-8-8 l-3-80 z" aria-hidden="true"></path>
+            <path    class="zone" data-z="legLower" d="M108 306 q-2 8 -1 15 l5 55 q1 8 9 8 q8 0 8-8 l1-70 z" role="button" tabindex="0" aria-pressed="false" aria-label="ひざ下"><title>ひざ下 6,600円</title></path>
+            <path    class="zone" data-z="legLower" d="M152 306 q2 8 1 15 l-5 55 q-1 8 -9 8 q-8 0-8-8 l-1-70 z" aria-hidden="true"></path>
+          </g>
+        </svg>
+      </div>
+
+      <div class="pick__side">
+        <ul class="pick__list" id="zlist">
+          <li><button type="button" class="zbtn" data-z="face"     data-p="4400" aria-pressed="false">顔<i>4,400</i></button></li>
+          <li><button type="button" class="zbtn" data-z="neck"     data-p="3300" aria-pressed="false">うなじ<i>3,300</i></button></li>
+          <li><button type="button" class="zbtn" data-z="armUpper" data-p="4400" aria-pressed="false">二の腕<i>4,400</i></button></li>
+          <li><button type="button" class="zbtn" data-z="armLower" data-p="4400" aria-pressed="false">ひじ下<i>4,400</i></button></li>
+          <li><button type="button" class="zbtn" data-z="body"     data-p="6600" aria-pressed="false">胸・お腹<i>6,600</i></button></li>
+          <li><button type="button" class="zbtn" data-z="back"     data-p="7700" aria-pressed="false">背中<i>7,700</i></button></li>
+          <li><button type="button" class="zbtn" data-z="legUpper" data-p="7700" aria-pressed="false">太もも<i>7,700</i></button></li>
+          <li><button type="button" class="zbtn" data-z="legLower" data-p="6600" aria-pressed="false">ひざ下<i>6,600</i></button></li>
+          <li><button type="button" class="zbtn" data-z="vio"      data-p="8800" aria-pressed="false">VIO<i>8,800</i></button></li>
+        </ul>
+
+        <div class="pick__out">
+          <p class="pick__lb">TOTAL PER SESSION</p>
+          <p class="pick__sum"><span id="sum">0</span><i>円</i></p>
+          <p class="pick__cnt"><b id="cnt">0</b> 部位を選択中<span id="disc"></span></p>
+          <button type="button" class="pick__reset" id="reset">選択をリセット</button>
+        </div>
+      </div>
+    </div>
+    <p class="fine">表示は1回あたりの税込金額です。3部位以上で10%、5部位以上で15%割引になります。目安の回数は、自己処理が楽になるまでが6〜8回、ほぼ生えてこない状態までが12〜18回です（個人差があります）。回数の契約はないため、途中でやめられます。</p>
+  </div>
+</section>
+
+<!-- ════ 比較 ════ -->
+<section class="sect sect--plum" id="policy">
+  <div class="well rv">
+    <p class="eyebrow">Policy</p>
+    <h2 class="h2">なぜ<em>全身プラン</em>を<br>置いていないのか。</h2>
+    <p class="lead">まとめて売るほうが、店としては儲かります。それでも置かない理由があります。</p>
+    <div class="vs">
+      <div class="vs__row">
+        <div class="vs__c"><p class="vs__h">よくある形</p><p>全身◯回コースを一括契約</p></div>
+        <div class="vs__c vs__c--on"><p class="vs__h">ぬかの形</p><p>必要な部位だけ、1回ずつ</p></div>
+      </div>
+      <div class="vs__row">
+        <div class="vs__c"><p class="vs__h">支払い</p><p>数十万円をローンで前払い</p></div>
+        <div class="vs__c vs__c--on"><p class="vs__h">支払い</p><p>来店のたびに、その回の分だけ</p></div>
+      </div>
+      <div class="vs__row">
+        <div class="vs__c"><p class="vs__h">やめるとき</p><p>解約手数料と残回数の精算</p></div>
+        <div class="vs__c vs__c--on"><p class="vs__h">やめるとき</p><p>予約を取らなければ、それで終わり</p></div>
+      </div>
+    </div>
+    <p class="fine">満足する回数は部位によって大きく違います。腕は8回で十分でも、VIOは15回かかることがあります。一括で買うと、必ずどこかが余るか足りません。</p>
+  </div>
+</section>
+
+<!-- ════ スタッフ ════ -->
+<section class="sect" id="staff">
+  <div class="wide rv">
+    <p class="eyebrow">Staff</p>
+    <h2 class="h2">担当は<em>2名だけ</em>です。</h2>
+    <p class="lead">毎回同じ人が担当します。前回どこまでやったかを、毎回説明する必要はありません。</p>
+    <ul class="staff">
+      <li><div class="staff__pic"><img src="./images/st-01.svg" alt="スタッフ 糠塚" width="700" height="900" loading="lazy"></div>
+        <h3 class="staff__n">糠塚 みのり<span>MINORI NUKAZUKA</span></h3><p class="staff__r">店長／日本エステティック協会 認定エステティシャン</p>
+        <p class="staff__b">前職は大手サロンで、契約を取るのが仕事でした。それが嫌でこの店を始めています。売りたくないものは、置いていません。</p></li>
+      <li><div class="staff__pic"><img src="./images/st-02.svg" alt="スタッフ 早坂" width="700" height="900" loading="lazy"></div>
+        <h3 class="staff__n">早坂 あかり<span>AKARI HAYASAKA</span></h3><p class="staff__r">エステティシャン／敏感肌・アトピー肌の施術担当</p>
+        <p class="staff__b">自分がアトピー体質で、断られ続けた経験があります。他店で断られた方は、まず相談だけでもしてください。</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ════ 声 ════ -->
+<section class="sect sect--alt" id="voices">
+  <div class="wide rv">
+    <p class="eyebrow">Voices</p>
+    <h2 class="h2">通っている方の声</h2>
+    <ul class="voices">
+      <li class="voice"><div class="voice__top"><div class="voice__av"><img src="./images/c-01.svg" alt="" width="400" height="400" loading="lazy"></div><div><p class="voice__nm">Aさん</p><p class="voice__ag">26・会社員</p></div></div>
+        <p class="voice__h">ひじ下だけで通っています</p>
+        <p class="voice__b">前の店では全身を勧められて、結局10万以上払って半分は使いませんでした。ここは腕だけで月4,400円です。それ以上言われません。</p></li>
+      <li class="voice"><div class="voice__top"><div class="voice__av"><img src="./images/c-02.svg" alt="" width="400" height="400" loading="lazy"></div><div><p class="voice__nm">Mさん</p><p class="voice__ag">33・アトピー体質</p></div></div>
+        <p class="voice__h">他店で3軒断られました</p>
+        <p class="voice__b">出力を落として、範囲も分けて進めてもらっています。回数はかかりますが、都度払いなので焦りません。</p></li>
+      <li class="voice"><div class="voice__top"><div class="voice__av"><img src="./images/c-03.svg" alt="" width="400" height="400" loading="lazy"></div><div><p class="voice__nm">Sさん</p><p class="voice__ag">41・主婦</p></div></div>
+        <p class="voice__h">途中で半年あけました</p>
+        <p class="voice__b">家の事情で通えなくなったのですが、契約がないので何も起きませんでした。また予約を取っただけです。</p></li>
+    </ul>
+    <p class="fine">個人の感想です。効果や必要回数には個人差があります。</p>
+  </div>
+</section>
+
+<!-- ════ フォーム ════ -->
+<section class="sect" id="counsel">
+  <div class="well rv">
+    <p class="eyebrow">Reservation</p>
+    <h2 class="h2">無料カウンセリングのご予約</h2>
+    <p class="lead">所要30分。当日の契約はお受けしていないので、安心してお越しください。</p>
+
+    <div class="done" id="done" role="status" aria-live="polite">
+      <div class="done__m"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>ご予約を受け付けました</h3>
+      <p>1営業日以内に、ご記入のメールへご連絡します。<br>お電話での営業はいたしません。</p>
+    </div>
+
+    <form class="form" id="form" novalidate>
+      <div class="fld" data-f="name"><label for="i-name">お名前<span class="req">必須</span></label><input id="i-name" name="name" type="text" autocomplete="name" placeholder="山田 花子"><p class="err">お名前をご入力ください</p></div>
+      <div class="fld" data-f="email"><label for="i-email">メールアドレス<span class="req">必須</span></label><input id="i-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="example@mail.com"><p class="err">メールアドレスをご確認ください</p></div>
+      <div class="fld" data-f="tel"><label for="i-tel">電話番号<span class="req">必須</span></label><input id="i-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="09012345678"><p class="err">電話番号をご確認ください</p></div>
+      <div class="fld"><label for="i-skin">肌の状態<span class="opt">任意</span></label>
+        <select id="i-skin" name="skin"><option value="">選んでください</option><option>特に問題なし</option><option>敏感肌</option><option>アトピー体質</option><option>日焼けしている</option><option>他店で断られたことがある</option></select></div>
+      <div class="fld"><label for="i-date">ご希望日<span class="opt">任意</span></label><input id="i-date" name="preferredDate" type="date"></div>
+      <div class="fld"><label for="i-msg">ご相談内容<span class="opt">任意</span></label><textarea id="i-msg" name="message" placeholder="上のチャートで選んだ部位が入ります"></textarea></div>
+      <input type="hidden" name="zones" id="i-zones">
+      <input type="hidden" name="estimate" id="i-est">
+      <input type="hidden" name="pageUrl" id="i-url">
+      <div class="sr" aria-hidden="true"><label for="i-hp">入力しないでください</label><input id="i-hp" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+      <p class="status" id="status" role="alert"></p>
+      <button type="submit" class="btn" data-cta="form">この内容で予約する<small>FREE / 30 MIN</small></button>
+      <p class="privacy">ご記入いただいた情報は、ご予約の確認にのみ使用します。第三者への提供は行いません。</p>
+    </form>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section class="sect sect--alt" id="faq">
+  <div class="well rv">
+    <p class="eyebrow">FAQ</p>
+    <h2 class="h2">よくあるご質問</h2>
+    <div class="faq">
+      <details><summary>痛みはどのくらいですか。</summary><div class="faq__a">当店は光脱毛（IPL）のため、医療レーザーより痛みは弱く、輪ゴムで軽く弾かれる程度です。VIOと顔は感じやすいので、出力を段階的に上げていきます。痛ければその場で言ってください。</div></details>
+      <details><summary>何回くらい必要ですか。</summary><div class="faq__a">自己処理が楽になるまでが6〜8回、ほぼ生えてこない状態までが12〜18回が目安です。毛質と部位で大きく変わります。当店は都度払いなので、満足した時点でやめられます。</div></details>
+      <details><summary>光脱毛と医療レーザーの違いは。</summary><div class="faq__a">医療レーザーのほうが出力が高く、回数は少なく済みますが、痛みと費用は上がります。永久脱毛を明確に希望される場合は、医療機関をおすすめします。当店は減毛・抑毛が目的のエステ脱毛です。</div></details>
+      <details><summary>日焼けしていても受けられますか。</summary><div class="faq__a">強い日焼けの直後は火傷のリスクがあるため、2〜4週間空けていただきます。地黒の方は出力を調整して対応できますので、まずご相談ください。</div></details>
+      <details><summary>予約のキャンセルは。</summary><div class="faq__a">前日20時までのご連絡でキャンセル料はかかりません。それ以降は1,100円を申し受けます。都度払いのため、消化扱いになる回数はありません。</div></details>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="well">
+    <div class="ft__l"><div class="ft__ja">ぬか</div><div class="ft__en">NUKA HAIR REMOVAL SALON</div></div>
+    <div class="ft__pic"><img src="./images/room.svg" alt="施術室" width="1000" height="750" loading="lazy"></div>
+    <dl>
+      <dt>所在地</dt><dd>埼玉県熊谷市筑波3-2-1 ぬかビル2F</dd>
+      <dt>アクセス</dt><dd>JR熊谷駅 南口 徒歩4分</dd>
+      <dt>営業時間</dt><dd>10:00–20:00（最終受付 19:00）</dd>
+      <dt>定休日</dt><dd>火曜</dd>
+      <dt>予約</dt><dd>Webのみ（お電話での受付は行っていません）</dd>
+    </dl>
+    <p class="ft__cp">© NUKA — 架空クライアントによる制作サンプルです</p>
+  </div>
+</footer>
+
+<div class="bar" id="bar">
+  <div class="bar__p"><b id="barsum">¥0</b><span>選択中の1回あたり総額</span></div>
+  <a class="btn" href="#counsel" data-cta="bar">無料カウンセリング</a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var track=function(n,p){if(typeof window.gtag==='function')window.gtag(n,p||{});};
+
+  /* ── 部位選択チャート ──────────────────────────────────
+     図と一覧ボタンは同じ data-z を共有する。左右対称の部位は
+     図の上では2つの path だが、料金は1部位ぶんしか足さない。
+     状態は Set で持ち、DOM の aria-pressed から数えない。   */
+  var PRICES={}, LABELS={};
+  var btns=[].slice.call(document.querySelectorAll('.zbtn'));
+  btns.forEach(function(b){
+    PRICES[b.dataset.z]=parseInt(b.dataset.p,10);
+    LABELS[b.dataset.z]=b.textContent.replace(/[\d,]+$/,'').trim();
+  });
+  var zones=[].slice.call(document.querySelectorAll('.zone'));
+  var picked={}, sumEl=document.getElementById('sum'), cntEl=document.getElementById('cnt'),
+      discEl=document.getElementById('disc'), barEl=document.getElementById('barsum'),
+      hidZ=document.getElementById('i-zones'), hidE=document.getElementById('i-est'),
+      msg=document.getElementById('i-msg'), typed=false, fired=false;
+  msg.addEventListener('input',function(){typed=true;});
+
+  function render(){
+    var keys=Object.keys(picked).filter(function(k){return picked[k];});
+    var raw=keys.reduce(function(a,k){return a+PRICES[k];},0);
+    var rate=keys.length>=5?0.15:keys.length>=3?0.10:0;
+    var total=Math.round(raw*(1-rate)/10)*10;
+
+    sumEl.textContent=total.toLocaleString('ja-JP');
+    cntEl.textContent=keys.length;
+    discEl.textContent=rate?'（'+Math.round(rate*100)+'%割引適用・通常 '+raw.toLocaleString('ja-JP')+'円）':'';
+    barEl.textContent='¥'+total.toLocaleString('ja-JP');
+
+    // 図と一覧の見た目を同期
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(!!picked[b.dataset.z]));});
+    zones.forEach(function(z){z.setAttribute('aria-pressed',String(!!picked[z.dataset.z]));});
+
+    var names=keys.map(function(k){return LABELS[k];});
+    if(hidZ) hidZ.value=names.join(' / ');
+    if(hidE) hidE.value=total?total+'円/回':'';
+    if(!typed) msg.value=names.length?'次の部位を希望します：\n'+names.map(function(n){return '・'+n;}).join('\n'):'';
+    if(keys.length&&!fired){fired=true;track('bodychart_use');}
+  }
+  function toggle(z){ picked[z]=!picked[z]; render(); }
+
+  btns.forEach(function(b){b.addEventListener('click',function(){toggle(b.dataset.z);});});
+  zones.forEach(function(z){
+    z.addEventListener('click',function(){toggle(z.dataset.z);});
+    z.addEventListener('keydown',function(e){
+      if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle(z.dataset.z);}
+    });
+  });
+  document.getElementById('reset').addEventListener('click',function(){picked={};typed=false;render();});
+  render();
+
+  /* ── 固定バー ── */
+  var bar=document.getElementById('bar'),hero=document.querySelector('.hero'),cs=document.getElementById('counsel');
+  function tb(){var p=hero.getBoundingClientRect().bottom<0,a=cs.getBoundingClientRect().top<window.innerHeight*0.85;
+    bar.setAttribute('data-on',(p&&!a)?'true':'false');}
+  tb();window.addEventListener('scroll',tb,{passive:true});window.addEventListener('resize',tb,{passive:true});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.setAttribute('data-in','true');io.unobserve(e.target);}});},{rootMargin:'0px 0px -12% 0px'});
+  [].slice.call(document.querySelectorAll('.rv')).forEach(function(el){io.observe(el);});
+
+  [].slice.call(document.querySelectorAll('[data-cta]')).forEach(function(el){
+    el.addEventListener('click',function(){track('cta_click',{position:el.dataset.cta});});});
+
+  /* ── フォーム ── */
+  var form=document.getElementById('form'),st=document.getElementById('status'),done=document.getElementById('done'),started=false;
+  form.addEventListener('input',function(){if(!started){started=true;track('form_start');}});
+  function bad(n,is){var f=form.querySelector('[data-f="'+n+'"]');if(f)f.setAttribute('data-bad',String(is));}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=form.querySelector('button[type=submit]'),fd=new FormData(form),d={};
+    fd.forEach(function(v,k){d[k]=String(v);});d.pageUrl=location.href;
+    var ok=true;
+    [['name',d.name.trim().length>0],
+     ['email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())],
+     ['tel',/^[0-9+\-() ]{10,}$/.test(d.tel.trim())]
+    ].forEach(function(p){bad(p[0],!p[1]);if(!p[1])ok=false;});
+    if(!ok){var f=form.querySelector('[data-bad="true"] input');if(f)f.focus();return;}
+    btn.disabled=true;btn.textContent='送信中…';st.removeAttribute('data-on');
+    fetch('/api/counseling',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){if(!r.ok)throw 0;
+        track('form_submit',{zones:d.zones});
+        form.style.display='none';done.setAttribute('data-on','true');
+        done.scrollIntoView({behavior:'smooth',block:'center'});})
+      .catch(function(){st.setAttribute('data-on','');
+        st.textContent='送信できませんでした。恐れ入りますが、時間をおいて再度お試しください。';
+        btn.disabled=false;btn.textContent='この内容で予約する';});
+  });
+})();
+</script>
+</body>
+</html>

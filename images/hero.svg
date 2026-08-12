@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1750" width="1400" height="1750" role="img" aria-label="メイン" preserveAspectRatio="xMidYMid slice">
+<defs><filter id="gn1" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter><radialGradient id="rg2" cx=".5" cy=".5" r=".5">
+        <stop offset="0" stop-color="#5A3348" stop-opacity=".92"/>
+        <stop offset=".45" stop-color="#5A3348" stop-opacity=".62"/>
+        <stop offset=".75" stop-color="#5A3348" stop-opacity=".22"/>
+        <stop offset="1" stop-color="#5A3348" stop-opacity="0"/>
+      </radialGradient><radialGradient id="rg3" cx=".5" cy=".5" r=".5">
+        <stop offset="0" stop-color="#7A3E56" stop-opacity=".92"/>
+        <stop offset=".45" stop-color="#7A3E56" stop-opacity=".62"/>
+        <stop offset=".75" stop-color="#7A3E56" stop-opacity=".22"/>
+        <stop offset="1" stop-color="#7A3E56" stop-opacity="0"/>
+      </radialGradient><radialGradient id="rg4" cx=".5" cy=".5" r=".5">
+        <stop offset="0" stop-color="#2A1723" stop-opacity=".92"/>
+        <stop offset=".45" stop-color="#2A1723" stop-opacity=".62"/>
+        <stop offset=".75" stop-color="#2A1723" stop-opacity=".22"/>
+        <stop offset="1" stop-color="#2A1723" stop-opacity="0"/>
+      </radialGradient><radialGradient id="lg5" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.132"/>
+      <stop offset=".6" stop-color="#fff" stop-opacity="0.0384"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient></defs>
+
+  <rect width="1400" height="1750" fill="#3A2130"/>
+  <ellipse cx="871.1725216766789" cy="606.9507030850218" rx="639.9039141030307" ry="791.0944958284518" fill="url(#rg2)"/><ellipse cx="214.23713898574348" cy="183.8051120481396" rx="614.159393237016" ry="1106.5487824485808" fill="url(#rg3)"/><ellipse cx="276.2359870938817" cy="354.32499906746676" rx="534.5373794083134" ry="793.2387131419092" fill="url(#rg4)"/>
+  <ellipse cx="470.32515751064057" cy="490.00000000000006" rx="784.0000000000001" ry="770" fill="url(#lg5)"/>
+  <rect width="1400" height="1750" filter="url(#gn1)" opacity="0.055" style="mix-blend-mode:multiply"/>
+</svg>
